@@ -8,6 +8,7 @@
   var resetButton = $("#reset");
   var breakButton = $('#break');
   var isOnBreak = false;
+  // var isReset = false;
   var timerInterval;
   //main functionality
   startButton.on("click", startTimer);
@@ -42,9 +43,26 @@
   function resetTimer(){
     // reset the timer
     console.log(timerInterval);
-    clearInterval(timerInterval);
-    minutes.text('25');
-    seconds.text('00');
+    if(isOnBreak){
+      //reset to 5:00
+      clearInterval(timerInterval);
+      minutes.text('05');
+      seconds.text('00');
+      // //reenable start button
+      // startButton.attr('disabled', true);
+      // //unhide the break button
+      // breakButton.show();
+    } else {
+      // reset to 25:00
+      clearInterval(timerInterval);
+      minutes.text('25');
+      seconds.text('00');
+      // // reenable start button
+      // startButton.attr('disabled', false);
+      // //unhide the break button
+      // breakButton.show();
+      isOnBreak = false;
+    }
   }
   function countdown(){
     var secondsText = seconds.text ();
