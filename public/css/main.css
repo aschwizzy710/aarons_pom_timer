@@ -25,3 +25,13 @@
   background-color: red;
   display: none;
 }
+
+#stop {
+  font-size: 750%;
+  background-color: red;
+}
+
+#reset {
+  font-size: 750%;
+  background-color: orange;
+}

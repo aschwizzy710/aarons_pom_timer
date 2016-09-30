@@ -4,12 +4,16 @@
   var startButton= $("#start");
   var seconds = $("#seconds");
   var minutes = $("#minutes");
+  var stopButton = $("#stop");
+  var resetButton = $("#reset");
   var breakButton = $('#break');
   var isOnBreak = false;
   var timerInterval;
   //main functionality
   startButton.on("click", startTimer);
   breakButton.on("click", startBreak);
+  stopButton.on("click", stopTimer);
+  resetButton.on("click", resetTimer);
   //function definition
     function startBreak(){
     //set that we are on a break
@@ -23,11 +27,24 @@
     // start the timer
     startTimer();
   }
-  function startTimer (){
+  function startTimer(){
       console.log(timerInterval);
       if(!timerInterval){
           timerInterval = setInterval(countdown, 1000);
       }
+  }
+  function stopTimer(){
+    // stop the timer
+    console.log(timerInterval);
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+  function resetTimer(){
+    // reset the timer
+    console.log(timerInterval);
+    clearInterval(timerInterval);
+    minutes.text('25');
+    seconds.text('00');
   }
   function countdown(){
     var secondsText = seconds.text ();
@@ -47,7 +64,7 @@
         //unhide the break button
         breakButton.show();
     } else {
-        minutes.text('25');
+        minutes.text('05');
         seconds.text('00');
         startButton.attr('disabled', false);
         isOnBreak = false;
