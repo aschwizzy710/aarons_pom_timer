@@ -7,22 +7,23 @@
   var stopButton = $("#stop");
   var resetButton = $("#reset");
   var breakButton = $('#break');
+  // var body = $('body');
   var isOnBreak = false;
-  // var isReset = false;
   var timerInterval;
   //main functionality
   startButton.on("click", startTimer);
   breakButton.on("click", startBreak);
   stopButton.on("click", stopTimer);
   resetButton.on("click", resetTimer);
+  // body.onkeyup("click", stopTimer);
   //function definition
     function startBreak(){
     //set that we are on a break
     isOnBreak = true;
     //set the minutes to 5 minutes
-    minutes.text('05');
+    minutes.text('00');
     // set the seconds to 0 seconds
-    seconds.text('00');
+    seconds.text('03');
     // hide the break button
     breakButton.hide();
     // start the timer
@@ -40,27 +41,36 @@
     clearInterval(timerInterval);
     timerInterval = null;
 }
+//   function body.onkeyup(){
+//   console.log(timerInterval);
+//   if(e.keyCode == 32) {
+//     e.preventDefault();
+//     stopTimer();
+//   }
+// }
   function resetTimer(){
     // reset the timer
     console.log(timerInterval);
     if(isOnBreak){
       //reset to 5:00
       clearInterval(timerInterval);
+      timerInterval = null;
       minutes.text('05');
       seconds.text('00');
-      // //reenable start button
-      // startButton.attr('disabled', true);
-      // //unhide the break button
-      // breakButton.show();
+      //reenable start button
+      startButton.attr('disabled', false);
+      //unhide the break button
+      breakButton.hide();
     } else {
       // reset to 25:00
       clearInterval(timerInterval);
+      timerInterval = null;
       minutes.text('25');
       seconds.text('00');
-      // // reenable start button
-      // startButton.attr('disabled', false);
-      // //unhide the break button
-      // breakButton.show();
+      // disable start button
+      startButton.attr('disabled', false);
+      // hide the break button
+      breakButton.hide();
       isOnBreak = false;
     }
   }
@@ -82,7 +92,7 @@
         //unhide the break button
         breakButton.show();
     } else {
-        minutes.text('05');
+        minutes.text('25');
         seconds.text('00');
         startButton.attr('disabled', false);
         isOnBreak = false;
