@@ -7,15 +7,16 @@
   var stopButton = $("#stop");
   var resetButton = $("#reset");
   var breakButton = $('#break');
-  // var body = $('body');
+  var body = $('body');
   var isOnBreak = false;
+  var spaceBar = false;
   var timerInterval;
   //main functionality
   startButton.on("click", startTimer);
   breakButton.on("click", startBreak);
   stopButton.on("click", stopTimer);
   resetButton.on("click", resetTimer);
-  // body.onkeyup("click", stopTimer);
+  body.on("keyup", keyboardStop);
   //function definition
     function startBreak(){
     //set that we are on a break
@@ -29,6 +30,23 @@
     // start the timer
     startTimer();
   }
+
+  function keyboardStop(e){
+    if (e.keyCode == 32){
+
+    if (!spaceBar) {
+      console.log('stuff!');
+      e.preventDefault();
+      stopTimer();
+    }
+  } else {
+
+      console.log('otherstuff');
+      e.preventDefault();
+      startTimer();
+      spaceBar = false;
+    }
+  }
   function startTimer(){
       console.log(timerInterval);
       if(!timerInterval){
@@ -41,13 +59,7 @@
     clearInterval(timerInterval);
     timerInterval = null;
 }
-//   function body.onkeyup(){
-//   console.log(timerInterval);
-//   if(e.keyCode == 32) {
-//     e.preventDefault();
-//     stopTimer();
-//   }
-// }
+
   function resetTimer(){
     // reset the timer
     console.log(timerInterval);
