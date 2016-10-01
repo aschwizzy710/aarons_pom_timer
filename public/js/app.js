@@ -30,18 +30,16 @@
     // start the timer
     startTimer();
   }
-
   function keyboardStop(e){
-    if (e.keyCode == 32){
-
     if (!spaceBar) {
+      e.keyCode = 32;
       console.log('stuff!');
       e.preventDefault();
       stopTimer();
-    }
-  } else {
-
+      spaceBar = true;
+    } else {
       console.log('otherstuff');
+      e.keyCode = 32;
       e.preventDefault();
       startTimer();
       spaceBar = false;
