@@ -11,6 +11,7 @@
   var isOnBreak = false;
   var spaceBar = false;
   var timerInterval;
+  var finishedSound = new Audio('https://freesound.org/data/previews/254/254316_4062622-lq.mp3');
   //main functionality
   startButton.on("click", startTimer);
   breakButton.on("click", startBreak);
@@ -22,9 +23,9 @@
     //set that we are on a break
     isOnBreak = true;
     //set the minutes to 5 minutes
-    minutes.text('00');
+    minutes.text('05');
     // set the seconds to 0 seconds
-    seconds.text('03');
+    seconds.text('00');
     // hide the break button
     breakButton.hide();
     // start the timer
@@ -93,6 +94,9 @@
     //console.log(typeof secondsText);
     //console.log(typeof secondsTextAsNumber);
     if (minutesTextAsNumber === 0 && secondsTextAsNumber === 0){
+      // ring when minutes and seconds are at 0
+      finishedSound.play();
+
       //stop!
       clearInterval(timerInterval); //this will stop the timer
       timerInterval = null;
