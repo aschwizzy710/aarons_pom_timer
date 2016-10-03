@@ -1,7 +1,6 @@
 {
   "name": "pom_timer",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aschwizzy710/pom_timer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aschwizzy710/pom_timer/issues"
+  },
+  "homepage": "https://github.com/aschwizzy710/pom_timer#readme",
+  "description": ""
 }
