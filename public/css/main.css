@@ -35,3 +35,7 @@
   font-size: 750%;
   background-color: orange;
 }
+
+body {
+  background: url(../image/tomato.jpg)
+}
