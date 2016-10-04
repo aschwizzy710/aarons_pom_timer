@@ -55,4 +55,5 @@ p {
   float: left;
   margin-right: 200px;
   padding-top: 80px;
+  display: inline;
 }
