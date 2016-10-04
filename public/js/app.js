@@ -7,12 +7,13 @@
   var stopButton = $("#stop");
   var resetButton = $("#reset");
   var breakButton = $('#break');
+  var longBreakButton = $('#long_break');
   var body = $('body');
   var isOnBreak = false;
+  var isOnLongBreak = false;
   var spaceBar = false;
   var timerInterval;
   var finishedSound = new Audio('https://freesound.org/data/previews/254/254316_4062622-lq.mp3');
-  var isOnLongBreak = false;
   var counter = 0;
   //main functionality
   startButton.on("click", startTimer);
