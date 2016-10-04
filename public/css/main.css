@@ -26,6 +26,12 @@
   display: none;
 }
 
+#long_break {
+  font-size: 750%;
+  background-color: red;
+  display: none;
+}
+
 #stop {
   font-size: 750%;
   background-color: red;

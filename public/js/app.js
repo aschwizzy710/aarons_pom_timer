@@ -20,17 +20,32 @@
   breakButton.on("click", startBreak);
   stopButton.on("click", stopTimer);
   resetButton.on("click", resetTimer);
+  longBreakButton.on("click", startLongBreak);
   body.on("keyup", keyboardStop);
   //function definition
     function startBreak(){
+    count = 1 + counter;
+    counter = count;
     //set that we are on a break
     isOnBreak = true;
     //set the minutes to 5 minutes
-    minutes.text('05');
+    minutes.text('00');
     // set the seconds to 0 seconds
-    seconds.text('00');
+    seconds.text('05');
     // hide the break button
     breakButton.hide();
+    // start the timer
+    startTimer();
+  }
+  function startLongBreak(){
+    // set that we are on long break
+    isOnLongBreak = true;
+    // set the minutes to 10 minutes
+    minutes.text('10');
+    // set seconds to 0 seconds
+    seconds.text('00');
+    // hide the short break button
+    longBreakButton.hide();
     // start the timer
     startTimer();
   }
@@ -93,7 +108,6 @@
     var secondsTextAsNumber = parseInt(secondsText);
     var minutesText = minutes.text();
     var minutesTextAsNumber = parseInt(minutesText);
-
     //console.log(typeof secondsText);
     //console.log(typeof secondsTextAsNumber);
     if (minutesTextAsNumber === 0 && secondsTextAsNumber === 0){
@@ -108,11 +122,18 @@
         startButton.attr('disabled', true);
         //unhide the break button
         breakButton.show();
-    } else {
-        minutes.text('25');
-        seconds.text('00');
+      }
+      if (!isOnLongBreak && count===2) {
+        //disable the start button
+        startButton.attr('disabled', true);
+        //unhide the long break button
+        longBreakButton.show();
+      } else {
+        minutes.text('00');
+        seconds.text('03');
         startButton.attr('disabled', false);
         isOnBreak = false;
+        isOnLongBreak = false;
       }
         return;
     }
