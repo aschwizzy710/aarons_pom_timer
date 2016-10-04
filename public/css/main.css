@@ -39,3 +39,20 @@
 body {
   background: url(../image/tomato.jpg)
 }
+
+p {
+  float: right;
+  padding-right: 470px;
+  margin-top: -30px;
+}
+
+.container {
+  padding-left: 120px;
+}
+
+.key_instructions {
+  color: purple;
+  float: left;
+  margin-right: 200px;
+  padding-top: 80px;
+}
