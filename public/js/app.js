@@ -29,9 +29,9 @@
     //set that we are on a break
     isOnBreak = true;
     //set the minutes to 5 minutes
-    minutes.text('05');
+    minutes.text('00');
     // set the seconds to 0 seconds
-    seconds.text('00');
+    seconds.text('05');
     // hide the break button
     breakButton.hide();
     // start the timer
@@ -129,9 +129,10 @@
         //unhide the long break button
         longBreakButton.show();
       } else {
-        minutes.text('25');
-        seconds.text('00');
+        minutes.text('00');
+        seconds.text('06');
         startButton.attr('disabled', false);
+        // breakButton.hide();
         isOnBreak = false;
         isOnLongBreak = false;
       }
