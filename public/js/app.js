@@ -32,15 +32,15 @@
     if (counter !== 3){
     //short break
     //set the minutes to 5 minutes
-    minutes.text('00');
+    minutes.text('05');
     // set the seconds to 0 seconds
-    seconds.text('05');
+    seconds.text('00');
     } else {
     //start long break
     //set minutes to 10 minutes
-    minutes.text('00');
+    minutes.text('10');
     //set seconds to 0 seconds
-    seconds.text('10');
+    seconds.text('00');
     counter = 0;
     }
     // hide break button
@@ -156,8 +156,8 @@
       //   count = 0;
       // if coming off a break
       } else {
-        minutes.text('00');
-        seconds.text('06');
+        minutes.text('25');
+        seconds.text('00');
         startButton.attr('disabled', false);
         isOnBreak = false;
         // isOnLongBreak = false;
